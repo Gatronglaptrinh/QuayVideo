@@ -1,0 +1,63 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+#head {
+	display: flex;
+	height: auto;
+	padding: 5px;
+}
+#img {
+	width: 400px;
+	height: 150px;
+}
+ul {
+	list-style-type: none;
+	display: inline-flex;
+	margin-left: 200px;
+	margin-top: 50px;
+}
+li {
+	display: block;
+	padding: 5px;
+	margin: 5px;
+	width: 100px;
+	height: 10px;
+	background-color: black;
+	border: 1px solid gray;
+	color: white;
+	transition: all 1s;
+	text-align: center;
+	padding: 10px;
+	cursor: default;
+}
+li:hover {
+	background-color: white;
+	color: black;
+}
+#logo {
+	width: auto;
+	height: auto;
+}
+#img2 {
+	width: 1200px;
+	height: 600px;
+}
+#body {
+	width: 1349px;
+	height: 500px;
+	display: flex;
+}
+#left {
+	display: block;
+	width: 30%;
+	height: 500px;
+	overflow-y: auto;
+	border: 1px solid black;
+}
+#right {
+	display: block;
+	width: 70%;
+	height: 1000px;
+}
+/* ok mình đã làm xong trang web tĩnh rồi nếu được 20 view thì mình sẽ làm trang web động nha */

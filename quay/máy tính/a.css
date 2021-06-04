@@ -1,0 +1,48 @@
+body {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.btn {
+	width: 25px;
+	height: 25px;
+	padding: 12.5px;
+	font-size: 19px;
+	background-color: lightgray;
+	cursor: pointer;
+	transition: all 0.5s;
+	border: none;
+	border-radius: 10px;
+}
+.btn:hover {
+	background-color: black;
+	color: white;
+}
+table {
+	background: gray;
+	padding: 5px;
+	margin: 10px;
+}
+#nhap, #cu {
+	width: 215px;
+	height: 25px;
+	background-color: white;
+	border: none;
+	text-align: right;
+}
+#cu {
+	height: 10px;
+	left: 0;
+	top: 0;
+	font-size: 10px;
+	color: lightgray;
+}
+input:focus {
+    outline-offset: none;
+}
+input:disabled {
+	background-color: white;
+	border: none;
+}
+/*4 * 50 + 3 * 5 = 200 + 15 = 215*/
+/*chắc là ok rồi để mình quay js*/
