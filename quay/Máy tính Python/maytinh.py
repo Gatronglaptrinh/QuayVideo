@@ -41,3 +41,5 @@ b20 = tk.Button(text="=",width=10, height=3, font=('Times New Roman', 16, 'bold'
 window.mainloop()
 # ok thu
 # ok thanh cong
+
+#tam biet
