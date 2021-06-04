@@ -1,0 +1,20 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#hienthi {
+	width: auto;
+	height: auto;
+	margin: 10px;
+	padding: 10px;
+}
+#dungcu {
+	width: auto;
+	height: auto;
+	padding: 5px;
+	margin: 5px;
+}
+.mau {
+	width: 50px;
+	height: 50px;
+}
