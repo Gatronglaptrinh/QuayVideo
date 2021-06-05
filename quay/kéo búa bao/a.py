@@ -3,7 +3,7 @@ import random as ran
 print('Hello ban da den tro choi keo bua bao')
 a = input('Ten ban la:')
 print('-------------------------------------')
-ban = 0;
+ban = 0
 def xuli(chon1, computer):
 	if computer == chon1:
 		return 'Draw' # Draw la hoa
@@ -25,7 +25,7 @@ def xuli(chon1, computer):
 while True:
 	chon = input(a + ' chon:')
 	if chon == 'Exit':
-		break;
+		break
 	elif chon == 'Keo' or chon == 'Bua' or chon == 'Bao' :
 		computer1 = ran.randint(0, 2)
 		if computer1 == 0:
