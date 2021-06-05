@@ -1,0 +1,92 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: rgb(77, 8, 119);
+}
+.main-content {
+	width: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.controls {
+	text-align: center;
+	padding: 10px 10px;
+	background-color: hotpink;
+	width: 50%;
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0 0 10px hotpink, 0 0 40px hotpink, 0 0 80px hotpink;
+}
+.controls:hover {
+	cursor: pointer;
+}
+#progressbar {
+	background-color: white;
+}
+#progress {
+	width: 0%;
+	height: 3px;
+	background-color: rgb(51, 51, 51);
+	position: relative;
+}
+#progress::after {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	background-color: black;
+	border-radius: 50%;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.time {
+	font-size: 10px;
+}
+.button-gr {
+	margin-top: 5px;
+}
+.button-gr span {
+	margin: 0 5px;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.705);
+}
+.button-gr span i {
+	transition: all 0.3s ease;
+}
+.button-gr span:hover i {
+	transform: scale(1.5);
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.container {
+	text-align: center;
+}
+#menu_search {
+	padding: 5px;
+}
+#menu_list {
+	margin-top: 10px;
+	font-size: 0;
+}
+.menu_item {
+	display: inline-block;
+}
+.menu_item a {
+	text-decoration: none;
+	color: white;
+	background-color: hotpink;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	margin: 0 4px;
+}

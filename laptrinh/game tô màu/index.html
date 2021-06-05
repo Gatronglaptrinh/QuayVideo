@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	Hàng: <input type="text" id="col">Cột: <input type="text" id="rol"><button onclick="them(col.value, rol.value)">Ok</button>
+		<div id="board">
+			<table>
+				<tr>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+				</tr>
+				<tr>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+				</tr>
+				<tr>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+				</tr>
+				<tr>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+				</tr>
+				<tr>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+					<td><button style="background-color: white;" class="btn" onclick="tomau(this)"></button></td>
+				</tr>
+			</table>
+		</div>
+	<table>
+		<tr>
+			<input type="button" style="background-color: black;" onclick="doiMau('black')" class="colorbtn">
+			<input type="button" style="background-color: red;" onclick="doiMau('red')" class="colorbtn">
+			<input type="button" style="background-color: yellow;" onclick="doiMau('yellow')" class="colorbtn">
+			<input type="button" style="background-color: blue;" onclick="doiMau('blue')" class="colorbtn">
+			<input type="button" style="background-color: green;" onclick="doiMau('green')" class="colorbtn">
+			<input type="button" style="background-color: cyan;" onclick="doiMau('cyan')" class="colorbtn">
+			<input type="button" style="background-color: orange;" onclick="doiMau('orange')" class="colorbtn">
+			<input type="button" style="background-color: gray;" onclick="doiMau('gray')" class="colorbtn">
+			<input type="button" style="background-color: purple;" onclick="doiMau('purple')" class="colorbtn">
+			<input type="button" style="background-color: pink;" onclick="doiMau('pink')" class="colorbtn">
+			<input type="button" style="background-color: white;" onclick="doiMau('white')" class="colorbtn">
+			<input type="button" style="background-color: brown;" onclick="doiMau('brown')" class="colorbtn">
+			<input type="button" style="background-color: burlywood;" onclick="doiMau('burlywood')" class="colorbtn">
+		</tr>
+		<tr>
+			<input type="file" accept="as/text">
+		</tr>
+	</table>
+</body>
+<script src="app.js"></script>
+</html>

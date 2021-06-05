@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title></title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" type="text/css" href="D:\thu muc Quan\file\css\thinghiem.css">
+</head>
+<body>
+<div id="mytab">
+	<ul>
+		<li><a href="#tab_1">Home</a></li>
+		<li><a href="#tab_2">Tools</a></li>
+		<li><a href="#tab_3">Geometrys</a></li>
+		<li><a href="#tab_4">Colors</a></li>
+		<li><a href="#tab_5">Text</a></li>
+		<li><a href="#tab_6">Caculator</a></li>
+	</ul>
+	<form id="form_main">
+		<div id="tab_4">
+		<center>
+			<input type="button" style="background-color: black;" onclick="doiMau('black')" class="colorbtn">
+			<input type="button" style="background-color: red;" onclick="doiMau('red')" class="colorbtn">
+			<input type="button" style="background-color: yellow;" onclick="doiMau('yellow')" class="colorbtn">
+			<input type="button" style="background-color: blue;" onclick="doiMau('blue')" class="colorbtn">
+			<input type="button" style="background-color: green;" onclick="doiMau('green')" class="colorbtn">
+			<input type="button" style="background-color: cyan;" onclick="doiMau('cyan')" class="colorbtn">
+			<input type="button" style="background-color: orange;" onclick="doiMau('orange')" class="colorbtn">
+			<input type="button" style="background-color: gray;" onclick="doiMau('gray')" class="colorbtn">
+			<input type="button" style="background-color: purple;" onclick="doiMau('purple')" class="colorbtn">
+			<input type="button" style="background-color: pink;" onclick="doiMau('pink')" class="colorbtn">
+			<input type="button" style="background-color: white;" onclick="doiMau('white')" class="colorbtn">
+			<input type="button" style="background-color: brown;" onclick="doiMau('brown')" class="colorbtn"><span id="form_them_mau"></span><br>
+			Color <br>
+			<form id="form_them_color">
+				<input type="text" id="mau" class="them">
+				<input type="color">
+				<input type="button" value="Ok" id="ok" class="them" onclick="themMau()">
+			</form>
+		</div>	
+		</center>
+	</form>
+		<div id="form_color">
+			<div id="tab_1">
+			<button onclick="undo()"><i class="fas fa-undo"></i></button>
+			<button onclick="drawBackground('#ffffff')" class="colorbtn"><i class="far fa-sticky-note"></i></button>
+			<button onclick="redo()"><i class="fas fa-redo"></i></button>
+		<span id="form_home_color">
+		</span>
+			<button onclick="doidungcu('line')" class="homebtn"><i class="fas fa-grip-lines"></i></button>
+			<button onclick="doidungcu('cicle')" class="homebtn"><i class="far fa-circle"></i></button>
+			<button onclick="doidungcu('rect')" class="homebtn"><i class="far fa-square"></i></button>
+			<button onclick="doidungcu('pen')" class="toolsbtnhome"><i class="fas fa-pen-fancy"></i></button>
+			<button onclick="doidungcu('eraser')" class="toolsbtnhome"><i class="fas fa-eraser"></i></button>
+			<input type="button" style="background-color: black;" onclick="doiMau('black')" class="colorbtnhome">
+			<input type="button" style="background-color: red;" onclick="doiMau('red')" class="colorbtnhome">
+			<input type="button" style="background-color: yellow;" onclick="doiMau('yellow')" class="colorbtnhome">
+			<input type="button" style="background-color: blue;" onclick="doiMau('blue')" class="colorbtnhome">
+			<input type="button" style="background-color: green;" onclick="doiMau('green')" class="colorbtnhome">
+			<input type="button" style="background-color: cyan;" onclick="doiMau('cyan')" class="colorbtnhome">
+			<input type="button" style="background-color: orange;" onclick="doiMau('orange')" class="colorbtnhome">
+			<input type="button" style="background-color: gray;" onclick="doiMau('gray')" class="colorbtnhome">
+			<input type="button" style="background-color: purple;" onclick="doiMau('purple')" class="colorbtnhome">
+			<input type="button" style="background-color: pink;" onclick="doiMau('pink')" class="colorbtnhome">
+			<input type="button" style="background-color: white;" onclick="doiMau('white')" class="colorbtnhome">
+			<input type="button" style="background-color: brown;" onclick="doiMau('brown')" class="colorbtnhome">
+			<button onclick="caculator('a')" id="caculator"><i class="fas fa-calculator fa-5px"></i> Caculator</button>
+			</div>
+	</div>
+		<div id="tab_2">
+			<button onclick="doidungcu('pen')" class="colorbtn"><i class="fas fa-pen-fancy"></i></button>
+			<button onclick="doidungcu('pencil')" class="colorbtn"><i class="fas fa-pencil-alt"></i></button>
+			<button onclick="doidungcu('mouse')" class="colorbtn"><i class="fas fa-mouse-pointer"></i></button>
+			<button onclick="doidungcu('eraser')" class="colorbtn"><i class="fas fa-eraser"></i></button>
+		</div>	
+		<div id="tab_3">
+			<button onclick="doidungcu('line')" class="colorbtn"><i class="fas fa-grip-lines"></i></button>
+			<button onclick="doidungcu('cicle')" class="colorbtn"><i class="far fa-circle"></i></button>
+			<button onclick="doidungcu('rect')" class="colorbtn"><i class="far fa-square"></i></button>
+			<button onclick="doidungcu('triangle')" class="colorbtn"><i class="fas fa-caret-up"></i></button>
+			<button onclick="doidungcu('thoi')" class="colorbtn">hình thoi</button>
+			<button onclick="doidungcu('pentagon')" class="colorbtn">ngũ giác</button>
+			<button onclick="doidungcu('trianglengang')" class="colorbtn">tam giác vuông</button>
+			<button onclick="doidungcu('star')" class="colorbtn"><i class="fas fa-star"></i></button>
+		</div>	
+	<div>
+		<div id="tab_5">
+			<center>time new roman</center>
+			<button onclick="doidungcu('text')" class="colorbtn"><i class="fas fa-font"></i></button>
+			<input type="text" id="noidung" placeholder="nội dung">
+			<input type="number" id="so" placeholder="size">
+			<input type="text" id="mautext" placeholder="màu chữ">
+			<input type="text" id="kieu" placeholder="kiểu">
+		</div>
+	</div>
+	<div id="tab_6">
+		<button onclick="caculator('a')" id="caculator"><i class="fas fa-calculator fa-5px"></i> Caculator</button>
+		<button onclick="caculator('b')" id="caculator"><i class="fas fa-calculator fa-5px"></i>Super Caculator</button>
+		<span id="mydialog">
+	</span>
+	</div>
+	<form id="form_size"></form>
+</div>
+	<canvas id="my"></canvas>
+	<script type="text/javascript">
+function doiMau(colorpicker) {
+	color = colorpicker;
+}
+function doidungcu(tool) {
+	tools = tool;
+}
+function doisize(sizes) {
+	size = sizes;
+}
+
+var mau = document.getElementById('mau');
+var ok = document.getElementById('ok');
+var form_mau = document.getElementById('form_them_mau');
+function themMau() {
+	form_mau.innerHTML += `<input type="button" style="background-color:` + mau.value + `;" onclick="doiMau('` + mau.value + `')" class="colorbtn">` ;
+}
+	</script>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="js.js"></script>
+<script type="text/javascript" src="text.js"></script>
+<script type="text/javascript" src="function.js"></script>
+<script type="text/javascript" src="display.js"></script>
+<script type="text/javascript" src="D:\thu muc Quan\file\java\thinghiem.js"></script>
+</html>

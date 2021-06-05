@@ -1,0 +1,57 @@
+canvas{
+    border: 2px solid black;
+    margin: 1px;
+}
+.colorbtn {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+.sizebtn {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+#form_main {
+    background-color: #cccccc;
+    width: auto;
+}
+.them {
+    margin: 5px;
+    top: 0px;
+}
+#form_size {
+    background-color: #cccccc;
+    width: 100%;
+    height: 40px;
+}
+#so {
+	width: 50px;
+}
+#form_color {
+	background-color: #d5d5dc;
+	width: 100%;
+	height: 100px;
+	margin: 0 auto;
+}
+#form_them_color {
+	background-color: #d5d5dc;
+	width: 100%;
+	height: 100px;
+}
+.toolsbtnhome {
+	width: 50px;
+	height: 70px;
+}
+.colorbtnhome {
+	width: 20px
+	height: 20px;
+}
+#form_home_color {
+	width: 130px;
+	margin: 0px;
+}
+.homebtn {
+	width: 40px;
+	height: 40px;
+}

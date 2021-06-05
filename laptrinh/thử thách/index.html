@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="mytab">
+		<ul>
+			<li><a href="#tab_1">Home</a></li>
+			<li><a href="#tab_2">Tools</a></li>
+			<li><a href="#tab_3">Geometrys</a></li>
+			<li><a href="#tab_4">Colors</a></li>
+			<li><a href="#tab_5">Coordinates</a></li>
+		</ul>
+		<div id="tab_3"></div>
+		<div id="tab_1">
+		</div>
+		<div id="tab_5">
+			Tọa độ x: <span id="wi"></span>
+			Tọa độ y: <span id="he"></span>
+		</div>
+		<div id="tab_2"></div>
+		<div id="tab_4">
+			<input type="button" style="background-color: black;" onclick="doiMau('black')" class="colorbtn">
+			<input type="button" style="background-color: red;" onclick="doiMau('red')" class="colorbtn">
+			<input type="button" style="background-color: yellow;" onclick="doiMau('yellow')" class="colorbtn">
+			<input type="button" style="background-color: blue;" onclick="doiMau('blue')" class="colorbtn">
+			<input type="button" style="background-color: green;" onclick="doiMau('green')" class="colorbtn">
+			<input type="button" style="background-color: cyan;" onclick="doiMau('cyan')" class="colorbtn">
+			<input type="button" style="background-color: orange;" onclick="doiMau('orange')" class="colorbtn">
+			<input type="button" style="background-color: gray;" onclick="doiMau('gray')" class="colorbtn">
+			<input type="button" style="background-color: purple;" onclick="doiMau('purple')" class="colorbtn">
+			<input type="button" style="background-color: pink;" onclick="doiMau('pink')" class="colorbtn">
+			<input type="button" style="background-color: white;" onclick="doiMau('white')" class="colorbtn">
+			<input type="button" style="background-color: brown;" onclick="doiMau('brown')" class="colorbtn">
+		</div>
+	</div>
+		<canvas id="my"></canvas>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="main.js"></script>
+</html>

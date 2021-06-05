@@ -1,0 +1,83 @@
+#form_chat {
+	display: inline-block;
+	border: 1px solid black;
+	width: 500px;
+	height: 600px;
+}
+#form_- {
+	position: absolute;
+	right: 3px;
+	top: 0;
+	cursor: pointer;
+}
+#form_head {
+	padding: 10px;
+	width: 480px;
+	height: 30px;
+	font-size: 24px;
+	text-align: center;
+	position: relative;
+}
+#form_body {
+	padding: 10px;
+	width: 480px;
+	height: 500px;
+	overflow: auto;
+	background-color: lightcyan;
+	position: relative;
+}
+#form_input {
+	position: relative;
+	width: 490px;
+	height: 20px;
+	padding: 5px;
+}
+#input {
+	width: 490px;
+	position: absolute;
+	height: 20px;
+	padding: 3px;
+	right: 0px;
+	top: 0px;
+	border: none;
+}
+#search {
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	border: none;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-color: white;
+}
+#input:focus {
+    outline-offset: none;
+    outline: none;
+}
+#search:focus {
+    outline-offset: none;
+    outline: none;
+}
+#me {
+	background-color: lightblue;
+	border-radius: 5px;
+	font-size: 18px;
+	display: inline-block;
+	padding: 5px;
+	margin-bottom: 3px;
+}
+#you {
+	background-color: lightgrey;
+	border-radius: 5px;
+	font-size: 18px;
+	display: inline-block;
+	padding: 5px;
+	margin-bottom: 3px;
+}
+td:nth-child(1) {
+	width: 200px;
+	max-width: 250px;
+	white-space: normal;
+	word-break: break-all;
+}

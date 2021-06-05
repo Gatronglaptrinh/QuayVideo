@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="c.css">
+	<script src="https://kit.fontawesome.com/b97db328cf.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="main-content">
+		<audio id="player">
+			<source src="E:\nhạc\Oh My - Patrick Patrikios.mp3" type="audio/mp3" id="ad">
+		</audio>
+		<div id="audio-player">
+			<div class="controls">
+				<div id="progressbar">
+					<div id="progress"></div>
+				</div>
+				<div class="time">
+					<span id="curtime">00:00</span>
+					<span>/</span>
+					<span id="durtime">00:00</span>
+				</div>
+				<div class="button-gr">
+					<span><i id="playbutton" class="fas fa-play-circle"></i></span>
+					<span><i id="loop" class="fas fa-undo"></i></span>
+					<span><i id="volume" class="fas fa-volume-up"></i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="c.js"></script>
+</html>

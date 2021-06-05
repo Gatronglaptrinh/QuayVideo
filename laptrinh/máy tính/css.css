@@ -1,0 +1,39 @@
+@charset "utf-8";
+body {
+	font-family: Arial;
+	font-size: 16px;
+	color: #000;
+	padding: 200px 0px 0px 200px;
+}
+
+.clear_all {
+	clear: both;
+}
+.button {
+	margin: 0px 0px 15px 15px;
+	padding: 10px 10px 10px 10px;
+	float: left;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #666;
+	color: #fff;
+	width: 40px;
+}
+#khung {
+	margin: 0px;
+	padding: 30px 15px 15px 15px;
+	border: 2px solid #333;
+	width: 285px;
+}
+#ketqua {
+	margin: 0px 0px 15px 0px;
+	padding: 10px;
+	text-align: right;
+	width: 265px;
+	outline: none;
+	border: 1px solid #333;
+}
+.button.first {margin-left: 0px;}
+.button:hover {
+	background-color: #333;
+}

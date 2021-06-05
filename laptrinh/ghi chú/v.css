@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: rgb(242, 243, 190);
+	text-align: center;
+}
+input:focus {
+    outline-offset: none;
+}
+:focus {
+    outline: none;
+}
+#tennhiemvu {
+	width: 250px;
+	height: 30px;
+	padding: 5px;
+	border: none;
+	font-size: 18px;
+}
+#giaonhiemvu {
+	border: 1px solid black;
+	display: inline-block;
+	width: 283px;
+	height: 33px;
+	margin-bottom: 5px;
+}
+#nut {
+	border: none;
+	background-color: white;
+	width: 30px;
+	height: 30px;
+}
+#nhiemvu {
+	background-color: white;
+	width: 1000px;
+	height: 500px;
+	display: inline-block;
+	text-align: left;
+	font-size: 35px;
+}
+.s {
+	width: 30px;
+	height: 30px;
+}

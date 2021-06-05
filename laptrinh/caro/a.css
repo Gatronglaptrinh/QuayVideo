@@ -1,0 +1,17 @@
+td {
+	width: 25px;
+	height: 25px;
+	font-size: 15px;
+	text-align: center;
+}
+#pl {
+	width: 300px;
+	height: 50px;
+	background-color: lightgray;
+	margin: 10px;
+	font-size: 40px;
+	display: inline-block;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}

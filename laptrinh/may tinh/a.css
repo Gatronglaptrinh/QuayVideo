@@ -1,0 +1,30 @@
+td > input {
+	width: 40px;
+	height: 40px;
+	margin: 1px;
+	transition: all 0.3s;
+}
+#ketqua {
+	width: 168px;
+	text-align: right;
+	font-size: 20px;
+}
+#caculator {
+	border: 1px solid black;
+	padding: 2px;
+	background-color: lightblue;
+}
+.khac {
+	background-color: lightgray;
+}
+.so {
+	background-color: white;
+	font-size: 18px;
+}
+#bang {
+	background-color: cyan;
+}
+td > input[type="button"]:hover {
+	background-color: black;
+	color: white;
+}
