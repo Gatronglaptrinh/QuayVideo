@@ -7,7 +7,9 @@ cactukhoa = {
 	'game': 'tro choi',
 	'programmer': 'lap trinh vien',
 	'programme': 'chuong trinh',
-	'chicken': 'thit ga'
+	'chicken': 'thit ga',
+	'English': 'Tieng Anh',
+	'Vietnam': 'Viet Nam'
 }
 hoatdong = True # biến cho biến chương trình có đang hoạt động
 # hàm trang chu
