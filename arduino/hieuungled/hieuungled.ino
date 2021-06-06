@@ -68,6 +68,27 @@ void sangtheomau(String c) {
     }
   }
 }
+void sangxeke(int a) {
+  tat();
+  switch (a) {
+    case 0:
+    for (int i = 0; i < len; i++) {
+      if (i % 2 == 0) {
+        digitalWrite(ledPin[i], HIGH);
+        delay(250);
+      }
+    }
+    break;
+    case 1:
+    for (int i = len-1; i > 0; i--) {
+      if (i % 2 == 0) {
+        digitalWrite(ledPin[i], HIGH);
+        delay(250);
+      }
+    }
+    break;
+  }
+}
 void loop() {
   bat();
   delay(1000);
@@ -81,4 +102,6 @@ void loop() {
   sangtheomau("yellow");
   sangtheomau("green");
   sangtheomau("red");
+  sangxeke(0);
+  sangxeke(1);
 }
