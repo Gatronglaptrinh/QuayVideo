@@ -15,6 +15,7 @@ function play() {
     const winningScore = 10000;
     let defenderCost = 100;
     let ten = "súng lục";
+    let a = true;
 
     const gameGrid = [];
     const defenders = [];
@@ -28,6 +29,7 @@ function play() {
     const defenderlienthanhs = [];
     const defenderxiengiaps = [];
     const boms = [];
+    const plants = [];
 
     // mouse
     const mouse = {
@@ -265,6 +267,7 @@ function play() {
             this.width = cellSize - cellGap * 2;
             this.height = cellSize - cellGap * 2;
             this.health = 100;
+            this.time = 0;
         }
         draw(){
             ctx.fillStyle = 'orange';
@@ -274,7 +277,8 @@ function play() {
             ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
         }
         update() {
-            if (frame % 1000 == 0) {
+            this.time++;
+            if (this.time % 500 == 0) {
                 resources.push(new Resource(this.x, this.y));
             }
         }
@@ -313,14 +317,15 @@ function play() {
     canvas.addEventListener('click', function(){
         const gridPositionX = mouse.x  - (mouse.x % cellSize) + cellGap;
         const gridPositionY = mouse.y - (mouse.y % cellSize) + cellGap;
+        if (gridPositionY < cellSize) return;
+        for (let i = 0; i < plants.length; i++){
+            if (plants[i].x === gridPositionX && plants[i].y === gridPositionY) return;
+        }
         if (choose == 2) {
-            if (gridPositionY < cellSize) return;
-            for (let i = 0; i < flowers.length; i++){
-                if (flowers[i].x === gridPositionX && flowers[i].y === gridPositionY) return;
-            }
             let defenderCost = 50;
             if (numberOfResources >= defenderCost){
                 flowers.push(new Flowers(gridPositionX, gridPositionY));
+                plants.push(new Flowers(gridPositionX, gridPositionY));
                 numberOfResources -= defenderCost;
             }
         }
@@ -332,6 +337,7 @@ function play() {
     	    let defenderCost = 100;
     	    if (numberOfResources >= defenderCost){
     	        defenders.push(new Defender(gridPositionX, gridPositionY));
+                plants.push(new Defender(gridPositionX, gridPositionY));
     	        numberOfResources -= defenderCost;
     	    }
     	}
@@ -343,6 +349,7 @@ function play() {
     	    let defenderCost = 150;
     	    if (numberOfResources >= defenderCost){
     	        armors.push(new Armor(gridPositionX, gridPositionY));
+                plants.push(new Armor(gridPositionX, gridPositionY));
     	        numberOfResources -= defenderCost;
     	    }
     	}
@@ -354,6 +361,7 @@ function play() {
             let defenderCost = 300;
             if (numberOfResources >= defenderCost){
                 armorsgai.push(new SpikeArmor(gridPositionX, gridPositionY));
+                plants.push(new SpikeArmor(gridPositionX, gridPositionY));
                 numberOfResources -= defenderCost;
             }
         }
@@ -365,6 +373,7 @@ function play() {
             let defenderCost = 200;
             if (numberOfResources >= defenderCost){
                 defenderlienthanhs.push(new DefenderLienthanh(gridPositionX, gridPositionY));
+                plants.push(new DefenderLienthanh(gridPositionX, gridPositionY));
                 numberOfResources -= defenderCost;
             }
         }
@@ -376,6 +385,7 @@ function play() {
             let defenderCost = 150;
             if (numberOfResources >= defenderCost){
                 defenderxiengiaps.push(new DefenderXieu(gridPositionX, gridPositionY));
+                plants.push(new DefenderXieu(gridPositionX, gridPositionY));
                 numberOfResources -= defenderCost;
             }
         }
@@ -387,13 +397,17 @@ function play() {
             defenderCost = 50;
             if (numberOfResources >= defenderCost){
                 boms.push(new Bom(gridPositionX, gridPositionY));
+                plants.push(new Bom(gridPositionX, gridPositionY));
                 numberOfResources -= defenderCost;
             }
         }
+
+
     });
 
     function handleDefenders(){
         for (let i = 0; i < defenders.length; i++){
+            for (let j = 0; j < plants.length; j++) {
             defenders[i].draw();
             defenders[i].update();
             if (enemyPositions.indexOf(defenders[i].y) !== -1){
@@ -408,6 +422,7 @@ function play() {
                 }
                 if (defenders[i] && defenders[i].health <= 0){
                     defenders.splice(i, 1);
+                    plants.splice(j, 1);
                     i--;
                     enemies[j].movement = enemies[j].speed;
                 }
@@ -416,6 +431,7 @@ function play() {
     }
     function handleDefendersXienGiap(){
         for (let i = 0; i < defenderxiengiaps.length; i++){
+            for (let j = 0; j < plants.length; j++) {
             defenderxiengiaps[i].draw();
             defenderxiengiaps[i].update();
             if (enemyPositions.indexOf(defenderxiengiaps[i].y) !== -1){
@@ -430,6 +446,7 @@ function play() {
                 }
                 if (defenderxiengiaps[i] && defenderxiengiaps[i].health <= 0){
                     defenderxiengiaps.splice(i, 1);
+                    plants.splice(j, 1);
                     i--;
                     enemies[j].movement = enemies[j].speed;
                 }
@@ -438,28 +455,32 @@ function play() {
     }
     function handleDefendersLienthanh(){
         for (let i = 0; i < defenderlienthanhs.length; i++){
-            defenderlienthanhs[i].draw();
-            defenderlienthanhs[i].update();
-            if (enemyPositions.indexOf(defenderlienthanhs[i].y) !== -1){
-                defenderlienthanhs[i].shooting = true;
-            } else {
-                defenderlienthanhs[i].shooting = false;
-            }
-            for (let j = 0; j < enemies.length; j++){
-                if (defenderlienthanhs[i] && collision(defenderlienthanhs[i], enemies[j])){
-                    enemies[j].movement = 0;
-                    defenderlienthanhs[i].health -= enemies[j].power;
+            for (let j = 0; j < plants.length; j++) {
+                defenderlienthanhs[i].draw();
+                defenderlienthanhs[i].update();
+                if (enemyPositions.indexOf(defenderlienthanhs[i].y) !== -1){
+                    defenderlienthanhs[i].shooting = true;
+                } else {
+                    defenderlienthanhs[i].shooting = false;
                 }
-                if (defenderlienthanhs[i] && defenderlienthanhs[i].health <= 0){
-                    defenderlienthanhs.splice(i, 1);
-                    i--;
-                    enemies[j].movement = enemies[j].speed;
+                for (let j = 0; j < enemies.length; j++){
+                    if (defenderlienthanhs[i] && collision(defenderlienthanhs[i], enemies[j])){
+                        enemies[j].movement = 0;
+                        defenderlienthanhs[i].health -= enemies[j].power;
+                    }
+                    if (defenderlienthanhs[i] && defenderlienthanhs[i].health <= 0){
+                        defenderlienthanhs.splice(i, 1);
+                        plants.splice(j, 1);
+                        i--;
+                        enemies[j].movement = enemies[j].speed;
+                    }
                 }
             }
         }
     }
     function handleFlowers(){
         for (let i = 0; i < flowers.length; i++){
+            for (let j = 0; j < plants.length; j++) {
             flowers[i].draw();
             flowers[i].update();
             for (let j = 0; j < enemies.length; j++){
@@ -469,6 +490,7 @@ function play() {
                 }
                 if (flowers[i] && flowers[i].health <= 0){
                     flowers.splice(i, 1);
+                    plants.splice(j, 1);
                     i--;
                     enemies[j].movement = enemies[j].speed;
                 }
@@ -477,6 +499,7 @@ function play() {
     }
     function handleArmors(){//console
         for (let i = 0; i < armors.length; i++){
+            for (let j = 0; j < plants.length; j++) {
             armors[i].draw();
             for (let j = 0; j < enemies.length; j++){
                 if (armors[i] && collision(armors[i], enemies[j])){
@@ -485,6 +508,7 @@ function play() {
                 }
                 if (armors[i] && armors[i].health <= 0){
                     armors.splice(i, 1);
+                    plants.splice(j, 1);
                     i--;
                     enemies[j].movement = enemies[j].speed;
                 }
@@ -493,12 +517,14 @@ function play() {
     }
     function handleBoms(){//console
         for (let i = 0; i < boms.length; i++){
+            for (let j = 0; j < plants.length; j++) {
             boms[i].draw();
             for (let j = 0; j < enemies.length; j++){
                 if (boms[i] && collision(boms[i], enemies[j])){
                     enemies[j].movement = 0;
                     enemies[j].health -= 5;
                     boms.splice(i, 1);
+                    plants.splice(j, 1);
                     i--;
                 }
             }
@@ -506,6 +532,7 @@ function play() {
     }
     function handleSpikeArmors(){//console
         for (let i = 0; i < armorsgai.length; i++){
+            for (let j = 0; j < plants.length; j++) {
             armorsgai[i].draw();
             for (let j = 0; j < enemies.length; j++){
                 if (armorsgai[i] && collision(armorsgai[i], enemies[j])){
@@ -515,6 +542,7 @@ function play() {
                 }
                 if (armorsgai[i] && armorsgai[i].health <= 0){
                     armorsgai.splice(i, 1);
+                    plants.splice(j, 1);
                     i--;
                     enemies[j].movement = enemies[j].speed;
                 }
@@ -746,8 +774,8 @@ function play() {
                 enemyPositions.push(verticalPosition);
                 if (enemiesInterval > 60) enemiesInterval -= 50;
             }
-
         }
+            
         
     }
 
@@ -760,6 +788,7 @@ function play() {
             this.width = cellSize * 0.6;
             this.height = cellSize * 0.6;
             this.amount = amounts[0];
+            this.time = 0;
         }
         draw(){
             ctx.fillStyle = 'yellow';
@@ -801,7 +830,7 @@ function play() {
         if (score >= winningScore && enemies.length === 0){
             ctx.fillStyle = 'black';
             ctx.font = '60px Orbitron';
-            ctx.fillText('ZOMBIE BỊ TIÊU DIỆN', 130, 300);
+            ctx.fillText('NHIỆM VỤ HOÀN THÀNH', 130, 300);
             ctx.font = '30px Orbitron';
             ctx.fillText('Bạn thắng với ' + score + ' điểm!', 134, 340);
         }
