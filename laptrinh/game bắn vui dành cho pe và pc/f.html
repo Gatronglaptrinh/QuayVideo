@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Game bắn đơn giản</title>
+	<link rel="stylesheet" type="text/css" href="f.css">
+</head>
+<body>
+	<canvas id="c"></canvas><br>
+	<button id="left" onclick="a.x -= 50">Trái</button>
+	<button id="ban" onclick="projectiles.push(new Projectile(a.x+25,a.y+25))">Bắn</button>
+	<button id="right" onclick="a.x += 50">Phải</button>
+</body>
+<script src="f.js"></script>
+</html>

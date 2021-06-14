@@ -16,6 +16,7 @@ canvas.addEventListener('click', function(e){
 	if (230 <= e.x && e.x <= 1130 && 80 <= e.y && e.y <= 280 && x == true) {
 		play();
 		x = false;
+		alert('hello');
 		console.log(e);
 	}
 	if (230 <= e.x && e.x <= 1130 && 330 <= e.y && e.y <= 530 && x == true) {
@@ -29,7 +30,7 @@ canvas.addEventListener('click', function(e){
 function display() {
 	button();
 	if (x) {
-		b = requestAnimationFrame(display);
+		requestAnimationFrame(display);
 	}
 }
 display();
