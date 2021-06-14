@@ -1,0 +1,56 @@
+.heart {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background-color: lightpink;
+	transform: rotate(225deg); /*180 + 45 = 225*/
+	margin: 50px;
+}
+.heart:before, .heart:after {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-color: lightpink;
+	border-radius: 50%;
+	content: "";
+}
+.heart:after {
+	bottom: -50px;
+	left: 0;
+}
+.heart:before {
+	top: 0;
+	right: -50px;
+}
+/*sai rồi mình thử một chút*/
+/*thế là okê tạm biệt mọi người*/
+.circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: black;
+}
+.transparent {
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	border-top: 100px solid black;
+	width: 0;
+	height: 0;
+}
+/*xong hình tròn, tiếp theo là hình tam giác*/
+/*xong hình tam giác, tiếp theo là hình thang*/
+.trapezium {
+	width: 100px;
+	height: 0;
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	border-bottom: 100px solid black;
+}
+* {
+	margin: 8px;
+}
+/*thế là xong, tạm biệt mọi người, mong mọi người ủng hộ của bạn*/
+/*nếu video này được 20 view mình sẽ làm tiếp nha*/
+/*bạn có thể thanh thảo w3school.com nha*/
+/*ko thì coi video của mình vậy*/
+/*byeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee*/
