@@ -2,20 +2,29 @@ var c = document.getElementById('c');
 var ctx = c.getContext('2d');
 c.width = 500;
 c.height = 550;
-const enemies = [];
+var enemies = [];
 const cellSize = 50;
 const projectiles = [];
+const items = [];
 let f = 0;
+var fr = 0;
+let over = false;
+let e = 10;
+let b = 2;
+let p = 20;
+var score = 0;
+const win = 5000;
 class Enemy {
-	constructor(x, y) {
+	constructor(x, y, h) {
 		this.x = x;
 		this.y = y;
 		this.width = 50;
 		this.height = 50;
-		this.speed = 1;
+		this.speed = 0.5;
 		this.maxSpeed = this.speed;
 		this.color = 'red';
-		this.health = 20;
+		this.health = h;
+    this.maxHealth = this.health;
 	}
 	draw() {
 		ctx.fillStyle = this.color;
@@ -27,6 +36,56 @@ class Enemy {
 	update() {
 		this.y += this.maxSpeed;
 	}
+}
+class Item {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+		this.width = 25;
+		this.height = 25;
+		this.speed = 1;
+		this.color = 'yellow';
+		this.functions = Math.floor(Math.random() * 5);
+	}
+	draw() {
+		ctx.fillStyle = this.color;
+		ctx.fillRect(this.x, this.y, this.width, this.height);
+	}
+	update() {
+		this.y += this.speed;
+	}
+  function() {
+    switch(this.functions) {
+        case 2:
+        e = 30;
+        break;
+        case 1:
+        b = 10;
+        break;
+        case 0:
+        p = 50;
+        break;
+        case 3:
+        for(let i = 0;i < 4; i++) {
+          projectiles.push(new Projectile(25,425,e,b));
+          projectiles.push(new Projectile(75,425,e,b));
+          projectiles.push(new Projectile(125,425,e,b));
+          projectiles.push(new Projectile(175,425,e,b));
+          projectiles.push(new Projectile(225,425,e,b));
+          projectiles.push(new Projectile(275,425,e,b));
+          projectiles.push(new Projectile(325,425,e,b));
+          projectiles.push(new Projectile(375,425,e,b));
+          projectiles.push(new Projectile(425,425,e,b));
+          projectiles.push(new Projectile(475,425,e,b));
+        }
+        break;
+        case 4:
+        score += enemies.length * 20;
+        enemies = [];
+        break;
+    }
+    
+  }
 }
 class Defender {
 	constructor(x, y) {
@@ -50,14 +109,14 @@ class Defender {
 	}
 }
 class Projectile {
-	constructor(x, y) {
+	constructor(x, y, r,s,p=20) {
 		this.x = x;
 		this.y = y;
-		this.width = 10;
+		this.width = r;
 		this.height = 10;
 		this.color = 'black';
-		this.speed = 2;
-		this.power = 20;
+		this.speed = s;
+		this.power = p;
 	}
 	draw() {
 		ctx.beginPath();
@@ -70,18 +129,49 @@ class Projectile {
 	}
 }
 function spawnEnemy() {
-	r = Math.floor(Math.random() * 9) * cellSize;
-	if(f % 400 == 0) {
-		enemies.push(new Enemy(r,0));
+	let r = Math.floor(Math.random() * 10) * cellSize;
+  let h = Math.floor(Math.random() * 5 + 1) * 20;
+	if(f % 100 == 0) {
+		enemies.push(new Enemy(r,0,h));
 	}
 	for (let i = 0; i < enemies.length; i++) {
 		enemies[i].draw();
 		enemies[i].update();
 		if (enemies[i].health <= 0) {
+            score += enemies[i].maxHealth / 2;
             enemies.splice(i, 1);
             i--;
         }
-        if (true) {}
+        else if (enemies[i].y + enemies[i].height >= c.height) {
+        	over = true;
+        }
+	}
+  
+}
+function spawnItems() {
+	let r = Math.floor(Math.random() * 10) * cellSize;
+	if(f % 2000 == 0) {
+		items.push(new Item(r,0));
+	}
+  if(fr <= 0) {
+    e = 10;
+    b = 2;
+    fr = 0;
+    p = 20;
+  }
+	for (let i = 0; i < items.length; i++) {
+		items[i].draw();
+    items[i].update();
+    if (items[i].y + items[i].height >= c.height) {
+      items.splice(i, 1);
+      i--;
+    }
+    if (items[i] && collision(a, items[i])) {
+      items[i].function();
+      items.splice(i, 1);
+      i--;
+      fr = 500;
+    }
 	}
 }
 function spawnProjectiles() {
@@ -97,20 +187,47 @@ function spawnProjectiles() {
 				}
 			}
 		}
-		if (projectiles[i] && projectiles[i].x > c.width) {
-			projectiles.splice(i, 1);
-			i--;
-		}
+	}
+	if (f % 5000 == 0) {
+		projectiles.push(new Projectile(25,425,e,b));
+		projectiles.push(new Projectile(75,425,e,b));
+		projectiles.push(new Projectile(125,425,e,b));
+		projectiles.push(new Projectile(175,425,e,b));
+		projectiles.push(new Projectile(225,425,e,b));
+		projectiles.push(new Projectile(275,425,e,b));
+		projectiles.push(new Projectile(325,425,e,b));
+		projectiles.push(new Projectile(375,425,e,b));
+		projectiles.push(new Projectile(425,425,e,b));
+		projectiles.push(new Projectile(475,425,e,b));
 	}
 }
-a = new Defender(0,c.height-50);
+let a = new Defender(0,c.height-50);
+document.addEventListener('keydown', function(ev) {
+	if (ev.which == 32) {
+		projectiles.push(new Projectile(a.x+25,a.y+25,e,b,p));
+	}
+	if (ev.which == 37) {
+		a.x -= 50;
+	}
+	if (ev.which == 39) {
+		a.x += 50;
+	}
+	console.log(ev);
+});
 function animate() {
 	ctx.clearRect(0,0,c.width,c.height);
 	a.draw();
 	a.update();
 	spawnEnemy();
 	spawnProjectiles();
+  spawnItems();
 	f++;
+  fr--;
+  document.getElementById('fr').innerHTML = fr;
+  document.getElementById('score').innerHTML = score;
+  if (score > win) {
+    over = true;
+  }
 	if (!over) {
 		requestAnimationFrame(animate);
 	}

@@ -1,0 +1,15 @@
+.html,.head,.h1,.link,.p,.body,.title {
+	padding: 20px;
+	border: 1px solid black;
+	margin: 10px;
+}
+.h1,.link,.p,.title {
+	text-align: center;
+	background-color: gray;
+}
+.body,.head {
+	background-color: darkgray;
+}
+.html {
+	background-color: lightgray;
+}

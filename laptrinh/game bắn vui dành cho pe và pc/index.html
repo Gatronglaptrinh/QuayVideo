@@ -7,9 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="f.css">
 </head>
 <body>
+	<span>Điểm: <span id="score">0</span><span style="margin-right:50px"></span> Thời gian kỹ năng: <span id="fr">0</span></span><br>
 	<canvas id="c"></canvas><br>
 	<button id="left" onclick="a.x -= 50">Trái</button>
-	<button id="ban" onclick="projectiles.push(new Projectile(a.x+25,a.y+25))">Bắn</button>
+	<button id="ban" onclick="projectiles.push(new Projectile(a.x+25,a.y+25,e,b,p));">Bắn</button>
 	<button id="right" onclick="a.x += 50">Phải</button>
 </body>
 <script src="f.js"></script>

@@ -73,7 +73,7 @@ const items = [];
 
 function spawnEnemies() {
     setInterval(() => {
-        const radius = Math.random() * (15 - 4) + 4;
+        const radius = Math.random() * (30 - 20) + 4;
         let x;
         let y;
         if (Math.random() < 0.5) {
@@ -112,7 +112,7 @@ function spawnItem() {
             x: Math.cos(angle),
             y: Math.sin(angle)
         }
-        as =/* Math.floor(Math.random() * 4)*/ 3;
+        as = Math.floor(Math.random() * 4);
         if (as == 0) {
             color = 'yellow';
         } else if (as == 1) {

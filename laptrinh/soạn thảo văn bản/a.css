@@ -1,0 +1,9 @@
+textarea:focus-visible {
+    outline-offset: none;
+}
+:focus-visible {
+    outline: none;
+}
+textarea {
+  resize: none;
+}
