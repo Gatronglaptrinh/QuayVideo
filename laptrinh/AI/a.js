@@ -2,25 +2,26 @@ body = document.getElementById('font_body');
 input = document.getElementById('input');
 a = 0;
 tinh = false;
-let man;
+var man = "";
 d = 0;
+db = ``;
 
 function send() {
     if (man == '/tab' && d == 0) {
         man = '/tab';
         d++;
-        alert(d);
     } else if (document.getElementById('input').value != '') {
         man = document.getElementById('input').value;
     } else if (document.getElementById('input').value == '') {
         man = '/empty';
     }
-    document.getElementById('bd1').innerHTML += '<span id="me">' + man + '</span><br/>';
+    document.getElementById('bd1').innerHTML += '<span id="me">' + man + '</span><br/><span style="color:lightgray;font-size: 10px;">' + s.getTime(); + '</span><br>';
     document.getElementById('input').value = '';
     take();
 }
-
+var s = new Time();
 function take() {
+    console.log(man);
     if (!tinh) {
         switch (man) {
             case 'chào':
@@ -62,7 +63,7 @@ function take() {
                 a = 0;
                 break;
             case 'switch':
-                document.getElementById('bd2').innerHTML += `<span id="you">switch(expression) {<br>case x:<br>// code block<br>break;<br>case y:<br>// code block<br>break;<br>default:<br>  // code block<br>br></span><br><br><br><br>`;
+                document.getElementById('bd2').innerHTML += `<span id="you">switch(expression) {<br>case x:<br>// code block<br>break;<br>case y:<br>// code block<br>break;<br>default:<br>  // code block<br><br></span><br><br><br><br>`;
                 a = 0;
                 break;
             default:
@@ -101,7 +102,6 @@ function take() {
                 break;
         }
     }
-    document.getElementById('bd2').innerHTML = ""
 }
 input.onkeydown = function(e) {
     if (e.which == 13) {
@@ -116,26 +116,12 @@ let c = true;
 
 function thunho() {
     if (c) {
+        db = document.body.innerHTML;
         document.body.innerHTML = `<div id="form_head" style="margin-top: 598px;"><span>Form Chat</span><span id="form_-" onclick="thunho()">-</span></div>`;
         c = false;
     } else {
-        document.body.innerHTML = `
-	<div id="form_chat">
-		<div id="form_head"><span>Form Chat</span><span id="form_-" onclick="thunho()">-</span></div>
-		<div id="form_body">
-			<table>
-				<tr>
-					<td id="bd1"></td>
-					<td id="bd2"></td>
-				</tr>
-			</table>
-		</div>
-		<div id="form_input">
-			<input type="text" id="input">
-			<button id="search" onclick="send()"><i class="fas fa-search"></i></button>
-		</div>
-	</div>
-	`;
+
+        document.body.innerHTML = db;
         c = true;
         document.getElementById('input').onkeydown = function(e) {
             if (e.which == 13) {

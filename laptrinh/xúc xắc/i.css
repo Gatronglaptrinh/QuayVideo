@@ -1,16 +1,4 @@
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-body {
-	background-color: lightgray;
-	text-align: center;
-}
 #c {
 	width: 600px;
 	height: 400px;
-	display: inline-block;
-	background: white;
-	margin-top: 10%;
 }
